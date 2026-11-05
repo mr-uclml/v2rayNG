@@ -1,0 +1,24 @@
+name: Download v2rayNG APK
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download APK
+        run: |
+          curl -L --fail --retry 5 --retry-delay 3 -o v2rayNG_2.3.15_arm64-v8a.apk "https://github.com/2dust/v2rayNG/releases/download/2.3.15/v2rayNG_2.3.15_arm64-v8a.apk"
+          ls -lh v2rayNG_2.3.15_arm64-v8a.apk
+      - name: Commit APK
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f v2rayNG_2.3.15_arm64-v8a.apk
+          git commit -m "Add v2rayNG 2.3.15 arm64-v8a APK"
+          git push
