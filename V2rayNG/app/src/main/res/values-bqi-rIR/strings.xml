@@ -549,6 +549,7 @@
     <string name="acc_open_menu">گۊشیڌن نومگه کشاری</string>
     <string name="acc_edit">آلشتکاری</string>
     <string name="acc_delete">پاک کردن</string>
+    <string name="acc_real_ping">آزمایش تئخیر واقعی</string>
     <string name="acc_save">زفت کردن</string>
     <string name="acc_update_subscriptions">ورۊ کردن اشتراکا</string>
     <string name="acc_per_app_proxy_information">دووسمندی پروکسی و ری برنومه</string>

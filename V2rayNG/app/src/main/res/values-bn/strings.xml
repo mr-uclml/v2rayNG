@@ -549,6 +549,7 @@
     <string name="acc_open_menu">নেভিগেশন মেনু খুলুন</string>
     <string name="acc_edit">সম্পাদনা করুন</string>
     <string name="acc_delete">মুছুন</string>
+    <string name="acc_real_ping">প্রকৃত বিলম্ব পরীক্ষা করুন</string>
     <string name="acc_save">সংরক্ষণ করুন</string>
     <string name="acc_update_subscriptions">সাবস্ক্রিপশন আপডেট করুন</string>
     <string name="acc_per_app_proxy_information">প্রতি-অ্যাপ প্রক্সির তথ্য</string>

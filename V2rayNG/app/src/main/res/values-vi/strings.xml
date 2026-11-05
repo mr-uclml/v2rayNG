@@ -547,6 +547,7 @@
     <string name="acc_open_menu">Mở trình đơn điều hướng</string>
     <string name="acc_edit">Chỉnh sửa</string>
     <string name="acc_delete">Xóa</string>
+    <string name="acc_real_ping">Kiểm tra độ trễ thực</string>
     <string name="acc_save">Lưu</string>
     <string name="acc_update_subscriptions">Cập nhật các gói đăng ký</string>
     <string name="acc_per_app_proxy_information">Thông tin proxy theo ứng dụng</string>

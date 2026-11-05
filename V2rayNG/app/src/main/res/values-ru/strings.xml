@@ -553,6 +553,7 @@
     <string name="acc_open_menu">Открыть меню навигации</string>
     <string name="acc_edit">Изменить</string>
     <string name="acc_delete">Удалить</string>
+    <string name="acc_real_ping">Проверить реальную задержку</string>
     <string name="acc_save">Сохранить</string>
     <string name="acc_update_subscriptions">Обновить подписки</string>
     <string name="acc_per_app_proxy_information">Сведения о прокси для приложений</string>

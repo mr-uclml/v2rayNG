@@ -549,6 +549,7 @@
     <string name="acc_open_menu">باز کردن منوی پیمایش</string>
     <string name="acc_edit">ویرایش</string>
     <string name="acc_delete">حذف</string>
+    <string name="acc_real_ping">آزمایش تأخیر واقعی</string>
     <string name="acc_save">ذخیره</string>
     <string name="acc_update_subscriptions">به‌روزرسانی اشتراک‌ها</string>
     <string name="acc_per_app_proxy_information">اطلاعات پروکسی به تفکیک برنامه</string>

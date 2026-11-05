@@ -67,6 +67,27 @@ private fun applyTestDelayResultsToRows(
     }
 }
 
+/** Builds the single-server real-ping request. An empty subscriptionId keeps the service from auto-removing or sorting the whole group after one row is tested. */
+internal fun singleServerRealPingMessage(guid: String): TestServiceMessage = TestServiceMessage(
+    key = AppConfig.MSG_MEASURE_CONFIG_START,
+    serverGuids = listOf(guid),
+    onlyTcp = false,
+)
+
+internal fun resetTestDelayForGuid(
+    servers: List<ServersCache>,
+    guid: String,
+): List<ServersCache> = servers.map { server ->
+    if (server.guid != guid || server.testDelayMillis == 0L) server else server.copy(testDelayMillis = 0L)
+}
+
+internal fun resetTestDelayForGuidInRows(
+    rows: List<ServerRowUiModel>,
+    guid: String,
+): List<ServerRowUiModel> = rows.map { row ->
+    if (row.guid != guid || row.testDelayMillis == 0L) row else row.copy(testDelayMillis = 0L)
+}
+
 class MainViewModel(
     application: Application,
     private val dataSource: MainDataSource
@@ -290,6 +311,7 @@ class MainViewModel(
             is MainAction.SelectGroup -> subscriptionIdChanged(action.groupId)
             is MainAction.SelectServer -> updateSelectedGuid(action.guid)
             is MainAction.RemoveServer -> removeServerAndRefresh(action.guid)
+            is MainAction.TestServerRealPing -> testServerRealPing(action.groupId, action.guid)
             is MainAction.Search -> filterConfig(action.query)
             is MainAction.ImportBatchConfig -> importBatchConfig(action.configText)
             MainAction.LocateHandled -> consumeLocateTarget()
@@ -896,6 +918,35 @@ class MainViewModel(
         val requestId = testRequests.beginCurrent()
         _uiState.update { it.copy(isTesting = true, status = MainStatus.Testing) }
         dataSource.testCurrentServerRealPing(requestId)
+    }
+
+    fun testServerRealPing(groupId: String, guid: String) {
+        cancelAllPing()
+        val request = testRequests.beginBulk(groupId)
+        mutableServerGroupState(groupId).update { current ->
+            current.copy(
+                servers = resetTestDelayForGuid(current.servers, guid),
+                rows = resetTestDelayForGuidInRows(current.rows, guid),
+            )
+        }
+        _uiState.update {
+            it.copy(
+                isTesting = true,
+                status = MainStatus.Testing
+            )
+        }
+        val message = singleServerRealPingMessage(guid)
+        bulkTestJob = viewModelScope.launch {
+            withContext(ioDispatcher) {
+                dataSource.clearAllTestDelayResults(listOf(guid))
+                cacheMutex.withLock {
+                    groupDataCache[groupId]?.let { cached ->
+                        groupDataCache[groupId] = resetTestDelayForGuid(cached, guid)
+                    }
+                }
+            }
+            dataSource.sendMsg2TestService(message, request.id)
+        }
     }
 
     private fun onTestsFinished(requestId: String) {

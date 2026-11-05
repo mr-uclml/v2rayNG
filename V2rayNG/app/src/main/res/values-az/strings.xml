@@ -549,6 +549,7 @@
     <string name="acc_open_menu">Naviqasiya menyusunu açın</string>
     <string name="acc_edit">Düzəliş et</string>
     <string name="acc_delete">Sil</string>
+    <string name="acc_real_ping">Real gecikməni sınaqdan keçir</string>
     <string name="acc_save">Saxla</string>
     <string name="acc_update_subscriptions">Abunəlikləri yenilə</string>
     <string name="acc_per_app_proxy_information">Tətbiq üzrə proksi məlumatı</string>

@@ -547,6 +547,7 @@
     <string name="acc_open_menu">打开导航菜单</string>
     <string name="acc_edit">编辑</string>
     <string name="acc_delete">删除</string>
+    <string name="acc_real_ping">测试真连接延迟</string>
     <string name="acc_save">保存</string>
     <string name="acc_update_subscriptions">更新订阅</string>
     <string name="acc_per_app_proxy_information">分应用代理信息</string>

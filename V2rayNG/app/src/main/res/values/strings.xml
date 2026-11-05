@@ -549,6 +549,7 @@
     <string name="acc_open_menu">Open navigation menu</string>
     <string name="acc_edit">Edit</string>
     <string name="acc_delete">Delete</string>
+    <string name="acc_real_ping">Test real delay</string>
     <string name="acc_save">Save</string>
     <string name="acc_update_subscriptions">Update subscriptions</string>
     <string name="acc_per_app_proxy_information">Per-app proxy information</string>

@@ -547,6 +547,7 @@
     <string name="acc_open_menu">開啟導覽選單</string>
     <string name="acc_edit">編輯</string>
     <string name="acc_delete">刪除</string>
+    <string name="acc_real_ping">測試真連接延遲</string>
     <string name="acc_save">儲存</string>
     <string name="acc_update_subscriptions">更新訂閱</string>
     <string name="acc_per_app_proxy_information">個別應用程式代理資訊</string>

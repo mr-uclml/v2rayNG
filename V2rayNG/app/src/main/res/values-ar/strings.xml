@@ -557,6 +557,7 @@
     <string name="acc_open_menu">فتح قائمة التنقل</string>
     <string name="acc_edit">تعديل</string>
     <string name="acc_delete">حذف</string>
+    <string name="acc_real_ping">اختبار زمن الاستجابة الفعلي</string>
     <string name="acc_save">حفظ</string>
     <string name="acc_update_subscriptions">تحديث الاشتراكات</string>
     <string name="acc_per_app_proxy_information">معلومات الوكيل لكل تطبيق</string>
