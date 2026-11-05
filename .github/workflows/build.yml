@@ -101,13 +101,6 @@ jobs:
         ./gradlew licenseFdroidReleaseReport
         ./gradlew assembleRelease -Pandroid.injected.signing.store.file=${{ steps.android_keystore.outputs.filePath }} -Pandroid.injected.signing.store.password=${{ secrets.APP_KEYSTORE_PASSWORD }} -Pandroid.injected.signing.key.alias=${{ secrets.APP_KEYSTORE_ALIAS }} -Pandroid.injected.signing.key.password=${{ secrets.APP_KEY_PASSWORD }}
     
-    - name: TEMP verify unit tests and Kotlin compile
-      if: always()
-      continue-on-error: true
-      run: |
-        cd ${{ github.workspace }}/V2rayNG
-        ./gradlew :app:compilePlaystoreDebugKotlin :app:testPlaystoreDebugUnitTest --console=plain 2>&1 | tail -150
-
     - name: Upload arm64-v8a APK
       uses: actions/upload-artifact@v7
       if: ${{  success() }}
